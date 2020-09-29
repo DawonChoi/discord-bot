@@ -57,19 +57,21 @@ def KDA(scope):
     return kda
 
 # if one of your team player defeated a previous game that over time 40min, Bot will recommend you dodging
-def time_parser():
-    pass
-
-
 def dodge(summoner):
     search(summoner)
+    minute, result = time_parser()
+    if int(minute) >= 40 and result == '패배':
+        return True
+    return False    
 
 
-search('블랙핑크 로제팬')    
-h = history(10)
-k = KDA(10)
-r = rating(10)
+def time_parser():
+    time = driver.find_element_by_xpath(f'//*[@id="SummonerLayoutContent"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div/div[1]/div[1]/div[5]').text
+    result = driver.find_element_by_xpath(f'//*[@id="SummonerLayoutContent"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div/div[1]/div[1]/div[4]').text
+    return time[:2], result
 
-print(h)
-print(k)
-print(r)
+
+if dodge('블랙핑크 로제팬') == True:
+    print('dodge')
+else:
+    print('needless')
