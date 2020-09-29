@@ -3,4 +3,4 @@
 .vscode/*
 *.txt
 .idea/*
-*.log
+debug.log
