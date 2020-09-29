@@ -1,7 +1,7 @@
 from selenium import webdriver
 import math
 
-driver = webdriver.Chrome('C:/Users/USER/Documents/workspace/chromedriver.exe')
+driver = webdriver.Chrome('C:/discord-bot/util/chromedriver.exe')
 driver.get('http://www.op.gg/')
 
 def search(summoner):
