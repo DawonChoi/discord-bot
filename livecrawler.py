@@ -1,8 +1,9 @@
 from selenium import webdriver
 import math
 
-driver = webdriver.Chrome('C:/discord-bot/util/chromedriver.exe')
-driver.get('http://www.op.gg/')
+def init():
+    driver = webdriver.Chrome('C:/discord-bot/util/chromedriver.exe')
+    driver.get('http://www.op.gg/')
 
 # commit test in Github Desktop third final
 
@@ -72,8 +73,3 @@ def time_parser():
     result = driver.find_element_by_xpath(f'//*[@id="SummonerLayoutContent"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div/div[1]/div[1]/div[4]').text
     return time[:2], result
 
-
-if dodge('블랙핑크 로제팬') == True:
-    print('dodge')
-else:
-    print('needless')
